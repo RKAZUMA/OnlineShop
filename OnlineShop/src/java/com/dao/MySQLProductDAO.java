@@ -31,7 +31,7 @@ public class MySQLProductDAO implements ProductDAO {
 
         try {
             con = MySQLDAOFactory.getConnection();
-            ps = con.prepareStatement("INSERT INTO tbl_product(name, description, price, quantity)");
+            ps = con.prepareStatement("INSERT INTO tbl_product(name, description, price, quantity) VALUES(?,?,?,?)");
             ps.setString(1, product.getName());
             ps.setString(2, product.getDescription());
             ps.setDouble(3, product.getPrice());
@@ -57,11 +57,65 @@ public class MySQLProductDAO implements ProductDAO {
     }
 
     public boolean deleteProduct(int productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = MySQLDAOFactory.getConnection();
+            ps = con.prepareStatement("DELETE FROM tbl_product WHERE product_id = ?");
+            ps.setInt(1, productId);
+
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MySQLProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
     }
 
     public boolean updateProduct(TblProduct product) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = MySQLDAOFactory.getConnection();
+            ps = con.prepareStatement("UPDATE tbl_product SET name = ?, "
+                    + "description = ?, price = ?, quantity = ? "
+                    + "WHERE product_id = ?");
+            ps.setString(1, product.getName());
+            ps.setString(2, product.getDescription());
+            ps.setDouble(3, product.getPrice());
+            ps.setInt(4, product.getQuantity());
+            ps.setInt(5, product.getProductId());
+
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MySQLProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
     }
 
     public List<TblProduct> searchProductByName(String name) {
@@ -210,5 +264,4 @@ public class MySQLProductDAO implements ProductDAO {
         }
         return false;
     }
-
 }

@@ -13,11 +13,6 @@
                 window.location = "/OnlineShop/faces/Invalid.xhtml";
             </script>
         </c:if>
-        <style>
-            table input[type=text] {
-                width: 20px;
-            }
-        </style>
         <h1>Admin</h1>
         <center>
             <p><a href="/OnlineShop/faces/Create.xhtml">Insert new product</a></p>
@@ -40,10 +35,14 @@
                             <td>\$ #{product.price}</td>
                             <td>#{product.quantity}</td>
                             <td>
-                                <h:inputText value="#{cart.selectedQuantity}"/>
-                                <h:commandButton action="#{cart.addProduct}" value="Add to cart" >
+                                <h:commandLink action="#{productBean.prepareEdit}" value="Edit">
                                     <f:setPropertyActionListener value="#{product.productId}" 
-                                                                 target="#{cart.selectedProduct}" />
+                                                                 target="#{productBean.selectedProduct}" />
+                                </h:commandLink>
+                                 | 
+                                <h:commandButton action="#{productBean.deleteProduct}" value="Delete" >
+                                    <f:setPropertyActionListener value="#{product.productId}" 
+                                                                 target="#{productBean.selectedProduct}" />
                                 </h:commandButton>
                             </td>
                         </tr>

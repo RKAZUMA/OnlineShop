@@ -12,7 +12,7 @@ import javax.faces.bean.SessionScoped;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 @ManagedBean
 @SessionScoped
@@ -50,6 +50,12 @@ public class ProductBean {
         return "Edit.xhtml";
     }
 
+    public String prepareCreate() {
+        product = new TblProduct();
+        message = "";
+        return "Create.xhtml";
+    }
+    
     public void editProduct() {
         if (productDAO.updateProduct(product)) {
             message = "Changes have been saved!";

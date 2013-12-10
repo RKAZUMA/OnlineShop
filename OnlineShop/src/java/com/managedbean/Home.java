@@ -13,7 +13,7 @@ import javax.faces.bean.RequestScoped;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 @ManagedBean
 @RequestScoped

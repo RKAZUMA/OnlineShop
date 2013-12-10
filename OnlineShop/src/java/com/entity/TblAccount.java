@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public class TblAccount implements Serializable {
 

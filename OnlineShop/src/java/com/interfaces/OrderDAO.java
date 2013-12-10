@@ -8,7 +8,7 @@ import com.entity.TblOrder;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public interface OrderDAO {
     public int insertOrder(TblOrder order);

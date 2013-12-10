@@ -15,7 +15,9 @@
         </c:if>
         <h1>Admin</h1>
         <center>
-            <p><a href="/OnlineShop/faces/Create.xhtml">Insert new product</a></p>
+            <h:form>
+                <h:commandLink action="#{productBean.prepareCreate}" value="Insert new product"/>
+            </h:form>
             <br/>
             <table border="1">
                 <tr>
@@ -39,7 +41,7 @@
                                     <f:setPropertyActionListener value="#{product.productId}" 
                                                                  target="#{productBean.selectedProduct}" />
                                 </h:commandLink>
-                                 | 
+                                | 
                                 <h:commandButton action="#{productBean.deleteProduct}" value="Delete" >
                                     <f:setPropertyActionListener value="#{product.productId}" 
                                                                  target="#{productBean.selectedProduct}" />

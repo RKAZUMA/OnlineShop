@@ -14,7 +14,7 @@ import javax.faces.bean.SessionScoped;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 @ManagedBean
 @SessionScoped

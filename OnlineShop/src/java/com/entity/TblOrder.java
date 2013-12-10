@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public class TblOrder implements Serializable {
 

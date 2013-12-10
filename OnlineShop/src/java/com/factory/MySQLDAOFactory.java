@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public class MySQLDAOFactory {
 

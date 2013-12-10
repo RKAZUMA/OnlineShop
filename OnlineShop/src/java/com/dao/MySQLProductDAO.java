@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public class MySQLProductDAO implements ProductDAO {
 

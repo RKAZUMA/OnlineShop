@@ -8,7 +8,7 @@ import com.entity.TblAccount;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public interface AccountDAO {
     public TblAccount checkLogin(String username, String password);

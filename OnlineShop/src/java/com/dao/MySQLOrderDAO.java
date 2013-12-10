@@ -9,7 +9,7 @@ import com.interfaces.OrderDAO;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public class MySQLOrderDAO implements OrderDAO {
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Dinh Quang Trung
+ * @author 
  */
 public interface ProductDAO {
     public boolean insertProduct(TblProduct product);
